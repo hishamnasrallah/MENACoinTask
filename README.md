@@ -73,7 +73,7 @@ python manage.py createsuperuser
 ###### API REQUEST EXAMPLES ########
 ```
 # add schedule for the task 
-curl --location --request PUT 'http://127.0.0.1:8000/bitcoin/bitcoin_usd_price/' \
+curl --location --request PUT 'http://127.0.0.1:8000/api/v1/price/' \
 --header 'Authorization: Api-Key 6uPX6al4.fJwnACLd5wIpXSgWDtlnZS61MwPGkBQA' \
 --header 'Content-Type: application/json'\
 --data-raw '{"interval": {"every":11, "period": "seconds"}, "task_name": "check_exchange_rate"}'
@@ -81,14 +81,14 @@ curl --location --request PUT 'http://127.0.0.1:8000/bitcoin/bitcoin_usd_price/'
 # "get" request  example
 it return the current price from alphavantage without storing data in database
 
-curl --location --request GET 'http://127.0.0.1:8000/bitcoin/bitcoin_usd_price/' \
+curl --location --request GET 'http://127.0.0.1:8000/api/v1/price/' \
 --header 'Authorization: Api-Key 6uPX6al4.fJwnACLd5wIpXSgWDtlnZS61MwPGkBQA' \
 --data-raw ''
 
 # "post" request example 
 it returns the current price from alphavantage with storing it to database (force run task)
 
-curl --location --request POST 'http://127.0.0.1:8000/bitcoin/bitcoin_usd_price/' \
+curl --location --request POST 'http://127.0.0.1:8000/api/v1/price/' \
 --header 'Authorization: Api-Key 6uPX6al4.fJwnACLd5wIpXSgWDtlnZS61MwPGkBQA' \
 --data-raw ''
 

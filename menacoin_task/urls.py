@@ -18,6 +18,6 @@ from django.urls import path, re_path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path('bitcoin/', include('bitcoin.urls'), name='bitcoin'),
+    re_path('api/', include('bitcoin.urls'), name='bitcoin'),
 
 ]
