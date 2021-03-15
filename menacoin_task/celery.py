@@ -3,7 +3,6 @@ import os
 from celery import Celery
 
 # set the default Django settings module for the 'celery' program.
-from celery.schedules import crontab
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'menacoin_task.settings')
 

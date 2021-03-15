@@ -34,12 +34,20 @@ python manage.py migrate
 python3 manage.py migrate
 ```
 
-##### 6. start celery beat
+##### 6. Initial fixtures
+```
+python manage.py loaddata misc/fixtures/*
+# or
+python3 manage.py loaddata misc/fixtures/* 
+```
+
+
+##### 7. start celery beat
 ```
 celery -A menacoin_task beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
 ```
 
-##### 7. start celery worker
+##### 8. start celery worker
 ```
 # Locally (inside your venv)
 # windows
@@ -48,7 +56,7 @@ celery -A menacoin_task worker --pool=solo -l info
 celery -A menacoin_task worker --loglevel=info
 ```
 
-##### 8. Run the app
+##### 9. Run the app
 ```
 python manage.py runserver
 # or
@@ -56,14 +64,14 @@ python3 manage.py runserver
 # Starting development server at http://127.0.0.1:8000/
 ```
 
-##### 9. create superuser
+##### 10. create superuser
 ```
 python manage.py createsuperuser
 ```
 
-##### 10. create api key from django admin 
+##### 11. create api key from django admin 
 
-##### 11. add the task to periodic tasks using django admin or by send put request to the api as following body
+##### 12. add the task to periodic tasks using django admin or by send put request to the api as following body
 ```
 {"interval": {"every":11, "period": "seconds"}, "task_name": "check_exchange_rate"}
 # you can change "every" and "period" but keep the "task_name" value as is.

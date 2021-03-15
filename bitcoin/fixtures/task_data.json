@@ -1,0 +1,45 @@
+[
+{
+    "model": "django_celery_beat.intervalschedule",
+    "pk": 1,
+    "fields": {
+        "every": 1,
+        "period": "hours"
+    }
+},
+{
+    "model": "django_celery_beat.periodictasks",
+    "pk": 1,
+    "fields": {
+        "last_update": "2021-03-15T09:19:34.970Z"
+    }
+},
+{
+    "model": "django_celery_beat.periodictask",
+    "pk": 1,
+    "fields": {
+        "name": "check_exchange_rate",
+        "task": "bitcoin.tasks.check",
+        "interval": 1,
+        "crontab": null,
+        "solar": null,
+        "clocked": null,
+        "args": "[]",
+        "kwargs": "{}",
+        "queue": null,
+        "exchange": null,
+        "routing_key": null,
+        "headers": "{}",
+        "priority": null,
+        "expires": null,
+        "expire_seconds": null,
+        "one_off": false,
+        "start_time": "2021-03-14T22:05:24.291Z",
+        "enabled": true,
+        "last_run_at": null,
+        "total_run_count": 0,
+        "date_changed": "2021-03-14T22:05:24.291Z",
+        "description": ""
+    }
+}
+]

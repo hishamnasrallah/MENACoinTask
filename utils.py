@@ -15,6 +15,6 @@ class AlphaVantageHelper:
             _to_currency,
             self.api_key
         )
-        response = requests.request("GET", alpha_vantage_end_point,).json()
+        response = requests.request("GET", alpha_vantage_end_point,)
 
         return response

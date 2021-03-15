@@ -1,7 +1,10 @@
 from rest_framework import serializers
 
+from bitcoin.models import CurrencyExchangeRateLog
 
-class BitCoinUSDPriceSerializer(serializers.Serializer):
-    # country = CountryField()
+
+class BitCoinUSDPriceSerializer(serializers.ModelSerializer):
+
     class Meta:
-        fields = ('function', 'from_currency', 'to_currency')
+        model = CurrencyExchangeRateLog
+        fields = ('from_currency_code', 'to_currency_code', 'exchange_rate', 'bid_price', 'ask_price')

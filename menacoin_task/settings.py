@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-# from os import environ as ENV
 
 import environ
 
@@ -30,7 +29,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -99,13 +98,13 @@ DATABASES = {
 ALPHA_VANTAGE_API_KEY = env('ALPHA_VANTAGE_API_KEY')
 ALPHA_VANTAGE_EXCHANGE_END_POINT = env('ALPHA_VANTAGE_EXCHANGE_END_POINT')
 
-CELERY_BROKER_URL = 'redis://localhost:6379/'
-
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/'
-CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND = env('CELERY_RESULT_BACKEND')
+CELERY_ACCEPT_CONTENT = [env('CELERY_ACCEPT_CONTENT')]
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
-CELERY_CACHE_BACKEND = 'django-cache'
+CELERY_CACHE_BACKEND = env('CELERY_CACHE_BACKEND')
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
